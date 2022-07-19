@@ -26,6 +26,7 @@ const fetchWeatherData = (city, res) => {
         const humidity = json.main.humidity;
         const tempMax = Math.floor(json.main.temp_max);
         const tempMin = Math.floor(json.main.temp_min);
+        const iconId = json.weather[0].icon;
         const city = json.name;
         res.render("index", {
           temp: temp,
@@ -34,6 +35,7 @@ const fetchWeatherData = (city, res) => {
           tempMax: tempMax,
           tempMin: tempMin,
           location: city,
+          iconId: iconId,
         });
       });
     } else {

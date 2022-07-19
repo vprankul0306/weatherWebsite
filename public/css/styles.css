@@ -69,6 +69,13 @@ body {
   position: relative;
   margin: 0 10rem;
 }
+
+.weather__icon {
+  margin-top: 0;
+  position: relative;
+  bottom: 40px;
+  left: 20px;
+}
 .weather {
   margin-bottom: 2rem;
   left: 0;
@@ -100,11 +107,15 @@ body {
   position: absolute;
 
   top: 50px;
-  left: 1000px;
+  left: 1100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 10rem;
+}
+.location__icon {
+  display: flex;
+  flex-direction: row;
 }
 
 .weather__icons {
@@ -121,7 +132,7 @@ body {
 .description {
   /* background-color: rgb(199, 228, 255); */
   background-color: #e2faff;
-  width: 45%;
+  width: 35%;
   margin: 4rem auto 0;
   /* margin-top: 2rem !important; */
   border-radius: 40px;
@@ -129,7 +140,7 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  padding: 2rem 4rem;
+  padding: 1rem 4rem;
 }
 .suggestion {
   font-size: 3rem;
@@ -146,7 +157,7 @@ body {
 .search__box {
   width: 70%;
   margin: 0 auto;
-  margin-top: 2rem;
+  margin-top: 0rem;
   /* height: 300px; */
   /* background-color: green; */
   /* z-index: 1; */
@@ -245,9 +256,14 @@ body,
   border-radius: 0.5rem !important;
 }
 .text-white {
-  /* color: #fff !important;s */
   font-weight: 500 !important;
+
+  /* color: blue !important; */
 }
+
+/* i {
+  color: blue !important;
+} */
 
 .container {
   width: 90% !important;
@@ -260,10 +276,10 @@ body,
   color: #6c757d !important;
 }
 .input-group-text {
-  color: white !important;
+  /* color: white !important; */
 }
 .card {
-  background-color: rgb(199, 228, 255) !important;
+  background-color: #e2faff !important;
 }
 .bck-img {
   width: 500px;
@@ -271,4 +287,7 @@ body,
   /* margin: 0 auto; */
   left: 520px;
   top: 200px;
+}
+.text-blue {
+  color: #6c757d !important;
 }

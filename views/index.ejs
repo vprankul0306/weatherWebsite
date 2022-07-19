@@ -51,7 +51,10 @@
                 <div class="container">
                   <div class="row">
                     <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                      <div class="card mb-2" style="border-radius: 10rem">
+                      <div
+                        class="card mb-2"
+                        style="border-radius: 10rem; border: none"
+                      >
                         <div class="card-body p-2">
                           <div class="input-group input-group-lg">
                             <input
@@ -68,7 +71,7 @@
                               ><a
                                 href="javascript:$('form-post').submit();"
                                 onclick="document.getElementById('form-post').submit();"
-                                ><i class="uil uil-search text-white"></i></a
+                                ><i class="uil uil-search text-blue"></i></a
                             ></span>
                           </div>
                         </div>
@@ -91,7 +94,18 @@
             <%=temp%> <span class="circle"> &#0176; </span>
             <!-- <span class="celcious"> c </span> -->
           </div>
-          <div class="location__name"><%=location%></div>
+
+          <div class="location__icon">
+            <div class="location__name"><%=location%></div>
+
+            <div class="weather__icon">
+              <img
+                src="https://openweathermap.org/img/wn/<%=iconId%>@2x.png"
+                alt="image"
+                class="icon"
+              />
+            </div>
+          </div>
         </div>
 
         <!-- image ends -->
