@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+
+    <!-- Bootstrap link -->
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+
+    <title>Weather</title>
+  </head>
+  <body>
+    <!-- image -->
+
+    <img class="bck-img" src="images/weather.svg" alt="" />
+
+    <!-- Header  -->
+    <main class="">
+      <!-- navbar -->
+      <header>
+        <nav class="nav" id="nav">
+          <div class="nav__part-1 nav__name">the.Weather</div>
+
+          <div class="nav__part-2">
+            <a class="nav__signup" href="">Sign Up </a>
+          </div>
+        </nav>
+      </header>
+
+      <!-- ======================= search section ============ -->
+      <!-- search box -->
+      <form action="" method="post" id="form-post">
+        <div class="search__box">
+          <!-- bootstrap search code -->
+
+          <section class="intro">
+            <div class="bg-image h-100">
+              <div class="mask d-flex align-items-center h-100">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                      <div class="card mb-2" style="border-radius: 10rem">
+                        <div class="card-body p-2">
+                          <div class="input-group input-group-lg">
+                            <input
+                              type="text"
+                              class="form-control form-control-lg rounde bg-transparent text-white input_area"
+                              placeholder="Enter your city"
+                              aria-label="Type Keywords"
+                              aria-describedby="basic-addon2"
+                              name="city"
+                            />
+                            <span
+                              class="input-group-text border-0"
+                              id="basic-addon2"
+                              ><a
+                                href="javascript:$('form-post').submit();"
+                                onclick="document.getElementById('form-post').submit();"
+                                ><i class="uil uil-search text-white"></i></a
+                            ></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- bootstrap search code ends -->
+        </div>
+      </form>
+
+      <!-- section weather -->
+      <section class="weather__data">
+        <div class="weather">
+          <div class="temperature">
+            <%=temp%> <span class="circle"> &#0176; </span>
+            <!-- <span class="celcious"> c </span> -->
+          </div>
+          <div class="location__name"><%=location%></div>
+        </div>
+
+        <!-- image ends -->
+
+        <div class="weather__info">
+          <div class="snowflake flex_temp">
+            <a href=""><i class="uil uil-snowflake weather__icons"></i></a>
+            <span class=""><%=humidity%> %</span>
+          </div>
+
+          <div class="wind flex_temp">
+            <a href=""><i class="uil uil-wind weather__icons"></i></a>
+            <span class=""><%=windSpeed%> km/h</span>
+          </div>
+          <div class="temp_min flex_temp">
+            <a href=""
+              ><i class="uil uil-temperature-empty weather__icons"></i
+            ></a>
+            <span class=""><%=tempMin%> &#0176;</span>
+          </div>
+          <div class="temp_max flex_temp">
+            <a href=""
+              ><i class="uil uil-temperature-three-quarter weather__icons"></i
+            ></a>
+            <span class=""><%=tempMax%> &#0176;</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- section description -->
+      <section class="description__section">
+        <div class="description">
+          <div class="suggestion">Just go somewhere</div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

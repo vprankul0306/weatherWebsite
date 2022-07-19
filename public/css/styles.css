@@ -1,0 +1,274 @@
+/* FONT typeeeee............... */
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap");
+
+body {
+  background-color: rgb(255, 255, 255);
+  font-family: "Josefin Sans", sans-serif !important;
+  font-weight: 500;
+  min-height: 100vh;
+  position: relative;
+  color: #596774 !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.search__box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================================  nav =========================== */
+.nav {
+  display: flex;
+  /* background-color: red;s */
+  justify-content: space-between;
+  margin: 0 10rem;
+  height: 6rem;
+  align-items: flex-end;
+}
+
+.nav__signup {
+  color: rgb(123, 189, 255);
+  background-color: white;
+  border: 2px solid rgb(123, 189, 255);
+  letter-spacing: 0.5px;
+}
+
+.nav__signup:link {
+  text-decoration: none;
+  border-radius: 35px;
+  padding: 15px 30px;
+  background-color: black;
+  cursor: pointer;
+}
+
+/* mouse over link */
+.nav__signup:hover {
+  background-color: rgb(123, 189, 255);
+  color: white;
+}
+
+/* selected link */
+.nav__signup:active {
+  color: blue;
+}
+
+.nav__name {
+  font-size: 1.5rem;
+}
+
+/* =============================== weather-data ===================================== */
+.weather__data {
+  /* background-color: wheat; */
+
+  position: relative;
+  margin: 0 10rem;
+}
+.weather {
+  margin-bottom: 2rem;
+  left: 0;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+}
+.temperature {
+  font-size: 10rem;
+  /* font-weight: 400; */
+  word-spacing: -0.1px;
+}
+.circle {
+  font-size: 10rem;
+  word-spacing: 0px;
+  display: inline;
+}
+.celcious {
+  display: contents;
+}
+.circle {
+  margin: 0;
+}
+.location__name {
+  font-size: 1.5rem;
+}
+.weather__info {
+  width: 6rem;
+  position: absolute;
+
+  top: 50px;
+  left: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 10rem;
+}
+
+.weather__icons {
+  font-size: 1.3rem;
+  color: rgb(123, 189, 255);
+  margin-right: 0.5rem;
+}
+.flex_temp {
+  display: flex;
+  flex-direction: row;
+}
+
+/* section description */
+.description {
+  /* background-color: rgb(199, 228, 255); */
+  background-color: #e2faff;
+  width: 45%;
+  margin: 4rem auto 0;
+  /* margin-top: 2rem !important; */
+  border-radius: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 4rem;
+}
+.suggestion {
+  font-size: 3rem;
+}
+.search__icon {
+  margin-top: 1rem;
+  font-size: 2rem;
+  background-color: rgb(235, 216, 216);
+  padding: 0.6rem 0.8rem;
+  border-radius: 100%;
+}
+
+/* ======================Search box ================= */
+.search__box {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 2rem;
+  /* height: 300px; */
+  /* background-color: green; */
+  /* z-index: 1; */
+}
+
+/* .search__box_style {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+ 
+} */
+
+/* css for search-box */
+html,
+body,
+.intro {
+  height: 100%;
+  width: 100%;
+}
+
+.form-control {
+  border-color: transparent;
+}
+
+.input-group > .form-control:focus {
+  border-color: transparent;
+  box-shadow: inset 0 0 0 1px transparent;
+}
+
+.btn-link:hover {
+  color: #f0b6d5;
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.btn-link:active,
+.btn-link.active {
+  color: #f0b6d5;
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.btn-link:focus,
+.btn-link.focus {
+  color: #f0b6d5;
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.btn-link:active:focus,
+.btn-link.active:focus {
+  color: #f0b6d5;
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.form-control::-moz-placeholder {
+  color: #fff;
+}
+
+.form-control:-ms-input-placeholder {
+  color: #fff;
+}
+
+.form-control::-ms-input-placeholder {
+  color: #fff;
+}
+
+.form-control::placeholder {
+  color: #fff;
+}
+
+.text-pink {
+  color: #f0b6d5;
+}
+
+.input-group-text {
+  /* background-color: #a78698 !important; */
+  background-color: transparent !important;
+}
+
+.form-control {
+  border: 0px !important;
+}
+.p-2 {
+  padding: 0 !important;
+}
+.input-group-lg > .form-control {
+  padding: 0.1rem 1rem !important;
+  font-size: 1rem !important;
+  border-radius: 0.5rem !important;
+}
+.text-white {
+  /* color: #fff !important;s */
+  font-weight: 500 !important;
+}
+
+.container {
+  width: 90% !important;
+}
+/* .form-control-lg {
+  min-height: calc(1em + 0.2rem + 2px) !important;
+} */
+.input-group-lg > .form-control {
+  font-size: 1.2rem !important;
+  color: #6c757d !important;
+}
+.input-group-text {
+  color: white !important;
+}
+.card {
+  background-color: rgb(199, 228, 255) !important;
+}
+.bck-img {
+  width: 500px;
+  position: absolute;
+  /* margin: 0 auto; */
+  left: 520px;
+  top: 200px;
+}
