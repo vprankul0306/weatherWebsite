@@ -149,10 +149,9 @@ body {
 }
 
 .description {
-  /* background-color: rgb(199, 228, 255); */
   background-color: #e2faff;
   width: 40%;
-  /* margin: 4rem auto 0; */
+
   margin-top: -50px !important;
   border-radius: 40px;
   display: flex;
