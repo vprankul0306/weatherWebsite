@@ -86,16 +86,21 @@ body {
 .temperature {
   font-size: 10rem;
   /* font-weight: 400; */
+  position: relative;
   word-spacing: -0.1px;
+}
+
+.celcius {
+  position: absolute;
+  left: 250px;
+  /* font-size: 0.5rem; */
 }
 .circle {
   font-size: 10rem;
   word-spacing: 0px;
   display: inline;
 }
-.celcious {
-  display: contents;
-}
+
 .circle {
   margin: 0;
 }
@@ -119,13 +124,16 @@ body {
 }
 
 .weather__icons {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: rgb(123, 189, 255);
   margin-right: 0.5rem;
 }
 .flex_temp {
   display: flex;
   flex-direction: row;
+}
+.side__data {
+  font-size: 1.2rem;
 }
 
 /* section description */

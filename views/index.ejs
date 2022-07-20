@@ -92,7 +92,7 @@
         <div class="weather">
           <div class="temperature">
             <%=temp%> <span class="circle"> &#0176; </span>
-            <!-- <span class="celcious"> c </span> -->
+            <span class="celcius"> c </span>
           </div>
 
           <div class="location__icon">
@@ -113,24 +113,24 @@
         <div class="weather__info">
           <div class="snowflake flex_temp">
             <a href=""><i class="uil uil-snowflake weather__icons"></i></a>
-            <span class=""><%=humidity%> %</span>
+            <span class="side__data"><%=humidity%> %</span>
           </div>
 
           <div class="wind flex_temp">
             <a href=""><i class="uil uil-wind weather__icons"></i></a>
-            <span class=""><%=windSpeed%> km/h</span>
+            <span class="side__data"><%=windSpeed%> km/h</span>
           </div>
           <div class="temp_min flex_temp">
             <a href=""
               ><i class="uil uil-temperature-empty weather__icons"></i
             ></a>
-            <span class=""><%=tempMin%> &#0176;</span>
+            <span class="side__data"><%=tempMin%> &#0176;</span>
           </div>
           <div class="temp_max flex_temp">
             <a href=""
               ><i class="uil uil-temperature-three-quarter weather__icons"></i
             ></a>
-            <span class=""><%=tempMax%> &#0176;</span>
+            <span class="side__data"><%=tempMax%> &#0176;</span>
           </div>
         </div>
       </section>
