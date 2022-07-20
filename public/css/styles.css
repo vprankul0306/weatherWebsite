@@ -103,14 +103,16 @@ body {
 }
 
 .celcius {
-  position: absolute;
-  left: 250px;
+  position: relative;
+  right: 90px;
   /* font-size: 0.5rem; */
 }
 .circle {
   font-size: 10rem;
   word-spacing: 0px;
   display: inline;
+  position: relative;
+  right: 30px;
 }
 
 .circle {
@@ -161,7 +163,7 @@ body {
   padding: 1rem 4rem;
 }
 .suggestion {
-  font-size: 3rem;
+  font-size: 1.5rem;
 }
 .search__icon {
   margin-top: 1rem;
@@ -175,7 +177,8 @@ body {
 .search__box {
   width: 70%;
   margin: 0 auto;
-  margin-top: 0rem;
+  /* margin-top: -40px; */
+  /* margin-right: 1rem; */
 }
 .web__center {
   display: flex;
@@ -303,7 +306,7 @@ body,
   background-color: #e2faff !important;
 }
 .bck-img {
-  width: 500px;
+  width: 450px;
   z-index: 1;
   position: relative;
 }
