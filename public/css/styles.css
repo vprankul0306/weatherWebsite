@@ -68,6 +68,9 @@ body {
 
   position: relative;
   margin: 0 10rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .weather__icon {
@@ -87,7 +90,16 @@ body {
   font-size: 10rem;
   /* font-weight: 400; */
   position: relative;
+  /* background-color: aqua; */
   word-spacing: -0.1px;
+}
+
+.weather__info {
+  margin-top: 3rem;
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .celcius {
@@ -107,17 +119,7 @@ body {
 .location__name {
   font-size: 1.5rem;
 }
-.weather__info {
-  width: 6rem;
-  position: absolute;
 
-  top: 50px;
-  left: 1100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 10rem;
-}
 .location__icon {
   display: flex;
   flex-direction: row;
@@ -149,7 +151,7 @@ body {
 .description {
   /* background-color: rgb(199, 228, 255); */
   background-color: #e2faff;
-  width: 35%;
+  width: 40%;
   /* margin: 4rem auto 0; */
   margin-top: -50px !important;
   border-radius: 40px;
