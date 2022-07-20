@@ -39,13 +39,29 @@ const fetchWeatherData = (city, res) => {
         });
       });
     } else {
-      res.render("pageNotFound");
+      response.on("data", function (data) {
+        const json = JSON.parse(data);
+        const message = json.message;
+        if (message == "city not found" || location == "") {
+          res.render("pageNotFound", {
+            message: "The entered location is not valid !!",
+          });
+        } else {
+          res.render("pageNotFound", {
+            message: "Unknown error occurred!!",
+          });
+        }
+      });
     }
   });
 };
 
 app.get("/", (req, res) => {
   fetchWeatherData("London", res);
+});
+
+app.get("*", (req, res) => {
+  res.render("pageNotFound", { message: "Page not found" });
 });
 
 app.post("/", (req, res) => {
