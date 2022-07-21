@@ -3,6 +3,7 @@
 
 body {
   background-color: rgb(255, 255, 255);
+  /* background-color: lightcyan !important; */
   font-family: "Josefin Sans", sans-serif !important;
   font-weight: 500;
   min-height: 100vh;
@@ -308,9 +309,9 @@ body,
 /*================================ width 1350========================================== */
 
 @media screen and (max-width: 1350px) {
-  main {
+  /* main {
     background-color: lightcoral;
-  }
+  } */
   .temperature {
     font-size: 8rem;
   }
@@ -318,9 +319,9 @@ body,
 
 /* ============================================width 1280============================= */
 @media screen and (max-width: 1280px) {
-  main {
+  /* main {
     background-color: lightpink;
-  }
+  } */
   .nav {
     margin: 0 5rem;
   }
@@ -348,9 +349,9 @@ body,
 }
 /* ============================================width 950============================= */
 @media screen and (max-width: 950px) {
-  main {
+  /* main {
     background-color: lightcyan;
-  }
+  } */
   .nav {
     margin: 0 5rem;
   }
@@ -383,9 +384,9 @@ body,
 /* ============================================width 770============================= */
 
 @media screen and (max-width: 950px) {
-  main {
+  /* main {
     background-color: lightgreen;
-  }
+  } */
   .nav {
     margin: 0 2rem;
   }
@@ -420,9 +421,9 @@ body,
 }
 /* ============================================width 600============================= */
 @media screen and (max-width: 645px) {
-  main {
+  /* main {
     background-color: lightseagreen;
-  }
+  } */
   .nav {
     margin: 0 3rem;
   }
@@ -459,9 +460,9 @@ body,
 }
 /* ============================================width 480============================= */
 @media screen and (max-width: 480px) {
-  main {
+  /* main {
     background-color: lightpink;
-  }
+  } */
 
   .side__data {
     font-size: 1rem;
