@@ -146,6 +146,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin-top: -350px;
+
   justify-content: center;
   gap: 0;
 }
@@ -155,7 +156,7 @@ body {
   width: 40%;
 
   margin-top: -50px !important;
-  border-radius: 40px;
+  border-radius: 30px;
   display: flex;
   flex-direction: row;
   align-items: center;
