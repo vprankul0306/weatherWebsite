@@ -165,6 +165,7 @@ body {
 }
 .suggestion {
   font-size: 1.5rem;
+  text-align: center;
 }
 .search__icon {
   margin-top: 1rem;
@@ -304,7 +305,160 @@ body,
 }
 
 /* ================================== media queries  ====================================*/
-@media screen and (max-width: 376px) {
+/*================================ width 1350========================================== */
+
+@media screen and (max-width: 1350px) {
+  main {
+    background-color: lightcoral;
+  }
+  .temperature {
+    font-size: 8rem;
+  }
+}
+
+/* ============================================width 1280============================= */
+@media screen and (max-width: 1280px) {
+  main {
+    background-color: lightpink;
+  }
+  .nav {
+    margin: 0 5rem;
+  }
+
+  .temperature {
+    font-size: 6rem;
+  }
+  .circle {
+    font-size: 8rem;
+  }
+  .search__box {
+    width: 60%;
+    margin-top: 1rem;
+  }
+  .weather__data {
+    margin: 0 5rem;
+  }
+  .description__section {
+    margin-top: -300px;
+    gap: 1.5rem;
+  }
+  .description {
+    width: 55%;
+  }
+}
+/* ============================================width 950============================= */
+@media screen and (max-width: 950px) {
+  main {
+    background-color: lightcyan;
+  }
+  .nav {
+    margin: 0 5rem;
+  }
+
+  .temperature {
+    font-size: 5rem;
+  }
+  .circle {
+    font-size: 8rem;
+  }
+  .search__box {
+    width: 60%;
+    margin-top: 1rem;
+  }
+  .weather__data {
+    margin: 0 5rem;
+  }
+  .description__section {
+    margin-top: -300px;
+    gap: 3rem;
+  }
+  .description {
+    width: 60%;
+  }
+  .suggestion {
+    font-size: 1.2rem;
+  }
+}
+
+/* ============================================width 770============================= */
+
+@media screen and (max-width: 950px) {
+  main {
+    background-color: lightgreen;
+  }
+  .nav {
+    margin: 0 2rem;
+  }
+
+  .temperature {
+    font-size: 5rem;
+  }
+  .circle {
+    font-size: 6rem;
+  }
+  .celcius {
+    right: 70px;
+  }
+  .search__box {
+    width: 60%;
+    margin-top: 2.5rem;
+  }
+  .weather__data {
+    margin: 0 2rem;
+  }
+  .description__section {
+    margin-top: -250px;
+    gap: 4rem;
+  }
+  .description {
+    width: 65%;
+    padding: 1rem 3rem;
+  }
+  .suggestion {
+    font-size: 1.2rem;
+  }
+}
+/* ============================================width 600============================= */
+@media screen and (max-width: 645px) {
+  main {
+    background-color: lightseagreen;
+  }
+  .nav {
+    margin: 0 3rem;
+  }
+
+  .temperature {
+    font-size: 5rem;
+  }
+  .circle {
+    font-size: 6rem;
+  }
+  .celcius {
+    right: 70px;
+  }
+  .search__box {
+    width: 60%;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .weather__data {
+    margin: 0 3.5rem;
+    margin-bottom: 1rem;
+  }
+  .description__section {
+    margin-top: -60px;
+    gap: 4rem;
+  }
+  .description {
+    width: 70%;
+    padding: 1rem 3rem;
+  }
+  .suggestion {
+    font-size: 1.2rem;
+  }
+}
+/* ============================================width 480============================= */
+@media screen and (max-width: 480px) {
   main {
     background-color: lightpink;
   }
@@ -326,58 +480,6 @@ body,
     margin: 0 2rem;
   }
   .weather__data {
-    margin: 0 1rem;
-    justify-content: space-between;
-  }
-  .weather__info {
-    margin-right: 0;
-  }
-  .temperature {
-    font-size: 6rem;
-  }
-  .circle {
-    font-size: 6rem;
-  }
-  .celcius {
-    position: relative;
-    right: 60px;
-  }
-  .description__section {
-    margin-top: -30px;
-    gap: 1.5rem;
-  }
-
-  .description {
-    width: 90%;
-  }
-  .search__box {
-    width: 90%;
-    margin-top: 3rem;
-  }
-}
-
-@media screen and (min-width: 377px) {
-  main {
-    background-color: lightcyan;
-  }
-
-  .side__data {
-    font-size: 1rem;
-  }
-  .nav__name {
-    font-size: 1.2rem;
-  }
-  .nav__contactus:link {
-    padding: 10px 20px;
-  }
-
-  .suggestion {
-    font-size: 1rem;
-  }
-  .nav {
-    margin: 0 2rem;
-  }
-  .weather__data {
     margin: 0 2rem;
     justify-content: space-between;
   }
@@ -385,181 +487,37 @@ body,
     margin-right: 0;
   }
   .temperature {
-    font-size: 6rem;
-  }
-  .circle {
-    font-size: 6rem;
-  }
-  .celcius {
-    position: relative;
-    right: 60px;
-  }
-  .description__section {
-    margin-top: -30px;
-    gap: 1.5rem;
-  }
-
-  .description {
-    width: 90%;
-  }
-  .search__box {
-    width: 90%;
-    margin-top: 3rem;
-  }
-}
-@media screen and (min-width: 485px) {
-  main {
-    background-color: lightgoldenrodyellow;
-  }
-  .suggestion {
-    font-size: 1.2rem;
-  }
-  .nav {
-    margin: 0 3rem;
-  }
-  .weather__data {
-    margin: 0 3rem;
-    justify-content: space-between;
-  }
-  .weather__info {
-    margin-right: 0;
-  }
-  .temperature {
-    font-size: 8rem;
-  }
-  .circle {
     font-size: 5rem;
   }
-  .celcius {
-    position: relative;
-    right: 40px;
-  }
-  .description__section {
-    margin-top: -70px;
-    gap: 1.5rem;
-  }
-
-  .description {
-    width: 80%;
-  }
-  .search__box {
-    width: 70%;
-    margin-top: 3rem;
-  }
-}
-@media screen and (min-width: 675px) {
-  main {
-    background-color: lightcoral;
-  }
-
-  .nav {
-    margin: 0 3rem;
-  }
-  .weather__data {
-    margin: 0 3rem;
-    justify-content: space-around;
-  }
-  .temperature {
-    font-size: 9rem;
-  }
-  .circle {
-    font-size: 5rem;
-  }
-  .celcius {
-    position: relative;
-    right: 40px;
-  }
-  .description__section {
-    margin-top: -70px;
-    gap: 1.5rem;
-  }
-
-  .description {
-    width: 80%;
-  }
-  .search__box {
-    width: 50%;
-    margin-top: 1rem;
-  }
-}
-@media screen and (min-width: 850px) {
-  main {
-    background-color: aquamarine;
-  }
-
-  .nav {
-    margin: 0 2rem;
-  }
-  .weather__data {
-    margin: 0 2rem;
-  }
-  .temperature {
-    font-size: 6rem;
-  }
   .circle {
     font-size: 6rem;
   }
   .celcius {
     position: relative;
     right: 60px;
-    /* font-size: 0.5rem; */
   }
   .description__section {
-    margin-top: -250px;
-    gap: 1.5rem;
+    margin-top: -20px;
+    gap: 2rem;
   }
-  .suggestion {
-    font-size: 1.2rem;
-  }
+
   .description {
-    width: 60%;
+    width: 90%;
+    margin-bottom: 2rem;
   }
   .search__box {
-    width: 60%;
+    width: 90%;
+    margin-top: 3rem;
   }
-}
-@media screen and (min-width: 1000px) {
-  main {
-    background-color: wheat;
-  }
-
-  .nav {
-    margin: 0 7rem;
-  }
-  .weather__data {
-    margin: 0 7rem;
-  }
-  .temperature {
-    font-size: 7rem;
-  }
-  .circle {
-    font-size: 7rem;
-  }
-  .description {
-    width: 50%;
-  }
-  .suggestion {
-    font-size: 1.2rem;
-  }
-  .description__section {
-    margin-top: -300px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  main {
-    background-color: greenyellow;
-  }
-  .temperature {
-    font-size: 9rem;
-  }
-  .circle {
-    font-size: 9rem;
-  }
-  .description {
-    width: 45%;
-  }
-  .suggestion {
+  .location__name {
     font-size: 1.3rem;
+  }
+  .icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .weather__icon {
+    bottom: 27px;
   }
 }
