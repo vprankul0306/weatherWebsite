@@ -528,3 +528,23 @@ body,
     margin-top: 1.8rem;
   }
 }
+/* ============================================width 350============================= */
+@media screen and (max-width: 350px) {
+  .circle {
+    font-size: 5rem;
+    right: 20px;
+  }
+  .temperature {
+    font-size: 3rem;
+  }
+  .celcius {
+    position: relative;
+    right: 55px;
+  }
+  .side__data {
+    font-size: 0.9rem;
+  }
+  .weather__icons {
+    font-size: 1.2rem;
+  }
+}
