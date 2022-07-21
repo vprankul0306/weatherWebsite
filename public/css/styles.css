@@ -457,6 +457,9 @@ body,
   .suggestion {
     font-size: 1.2rem;
   }
+  .weather__info {
+    margin-top: 1.8rem;
+  }
 }
 /* ============================================width 480============================= */
 @media screen and (max-width: 480px) {
@@ -520,5 +523,8 @@ body,
 
   .weather__icon {
     bottom: 27px;
+  }
+  .weather__info {
+    margin-top: 1.8rem;
   }
 }
