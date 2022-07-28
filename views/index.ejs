@@ -18,14 +18,14 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Weather</title>
   </head>
-  <body>
+  <body class="full__cover">
     <!-- image -->
 
     <!-- Header  -->
-    <main class="">
+    <main class="font__color_dark">
       <!-- navbar -->
       <header>
         <nav class="nav" id="nav">
@@ -38,6 +38,10 @@
               href="mailto:the.Weather.contact@gmail.com"
               >Contact Us
             </a>
+
+            <div class="themechange__btn">
+              <a><i class="uil uil-moon weather__icons themeChangeIcon"></i></a>
+            </div>
           </div>
         </nav>
       </header>
@@ -63,7 +67,7 @@
                             <input
                               type="text"
                               class="form-control form-control-lg rounde bg-transparent text-white input_area"
-                              placeholder="Enter your city"
+                              placeholder="Search for a city"
                               aria-label="Type Keywords"
                               aria-describedby="basic-addon2"
                               name="city"
@@ -72,6 +76,7 @@
                               class="input-group-text border-0"
                               id="basic-addon2"
                               ><a
+                                class="dark__search"
                                 href="javascript:$('form-post').submit();"
                                 onclick="document.getElementById('form-post').submit();"
                                 ><i class="uil uil-search text-blue"></i></a
@@ -95,13 +100,14 @@
         <div class="weather">
           <!-- 1. temp -->
           <div class="temperature">
-            <%=temp%> <span class="circle"> &#0176; </span>
+            <span class="temp"> <%=temp%> </span>
+            <span class="circle"> &#0176; </span>
             <span class="celcius"> c </span>
           </div>
 
           <!-- 2. location icon -->
           <div class="location__icon">
-            <div class="location__name"><%=location%></div>
+            <div class="location__name"><%=cityName%></div>
 
             <div class="weather__icon">
               <img
@@ -1239,7 +1245,14 @@
             sunshine.🌞
           </div>
         </div>
+        <!-- trial -->
+        <!-- <form action="/" method="post">
+          <button type="submit" onclick="this.form.submit()" name="unit">F</button>
+        </form> -->
       </section>
     </main>
+    <script src="/js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- (0°C × 9/5) + 32 -->
   </body>
 </html>

@@ -4,6 +4,8 @@ const https = require("https");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const { json } = require("body-parser");
+const { get } = require("http");
+const { log } = require("console");
 
 const app = express();
 
@@ -14,9 +16,9 @@ app.use(express.static("public"));
 //weather api: https://api.openweathermap.org/data/2.5/weather?q={cityName}&units=metric&appid=env.WEATHER_API
 
 const fetchWeatherData = (city, res) => {
-  let location = city;
   const apiKey = process.env.WEATHER_API;
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${apiKey}`;
+
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   https.get(url, function (response) {
     if (response.statusCode === 200) {
       response.on("data", function (data) {
@@ -34,15 +36,15 @@ const fetchWeatherData = (city, res) => {
           humidity: humidity,
           tempMax: tempMax,
           tempMin: tempMin,
-          location: city,
           iconId: iconId,
+          cityName: city,
         });
       });
     } else {
       response.on("data", function (data) {
         const json = JSON.parse(data);
         const message = json.message;
-        if (message == "city not found" || location == "") {
+        if (message == "city not found" || city == "") {
           res.render("pageNotFound", {
             message: "The entered location is not valid !!",
           });

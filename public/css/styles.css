@@ -43,7 +43,7 @@ body {
 .nav__contactus:link {
   text-decoration: none;
   border-radius: 35px;
-  padding: 15px 30px;
+  padding: 10px 30px;
   background-color: white;
   cursor: pointer;
 }
@@ -460,6 +460,9 @@ body,
   .weather__info {
     margin-top: 1.8rem;
   }
+  .theme_change {
+    background-size: 100% 900px !important;
+  }
 }
 /* ============================================width 480============================= */
 @media screen and (max-width: 480px) {
@@ -527,6 +530,9 @@ body,
   .weather__info {
     margin-top: 1.8rem;
   }
+  .theme_change {
+    background-size: 100% 900px !important;
+  }
 }
 /* ============================================width 350============================= */
 @media screen and (max-width: 350px) {
@@ -547,4 +553,53 @@ body,
   .weather__icons {
     font-size: 1.2rem;
   }
+}
+
+.theme_change {
+  /* min-height: initial; */
+  background: rgb(11, 33, 67);
+  background: linear-gradient(
+    180deg,
+    rgba(11, 33, 67, 1) 0%,
+    rgba(20, 48, 89, 1) 60%,
+    rgba(45, 87, 150, 1) 100%
+  );
+  /* background-repeat: no-repeat; */
+}
+
+.theme_change_font {
+  color: #b2c8df;
+}
+
+.suggestion__dark {
+  background-color: #c4d7e0;
+  /* background-color: #5f85db; */
+  /* background-color: #90b8f8; */
+  color: #071e3d;
+}
+.search__dark {
+  background-color: #c4d7e0 !important;
+}
+
+.contactus__dark {
+  color: #071e3d;
+
+  border: none;
+}
+.contactus__dark:hover {
+  background-color: #c4d7e0;
+  color: #071e3d;
+}
+
+.nav__part-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.dark {
+  background-color: red;
 }
