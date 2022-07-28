@@ -16,7 +16,7 @@ app.use(express.static("public"));
 //weather api: https://api.openweathermap.org/data/2.5/weather?q={cityName}&units=metric&appid=env.WEATHER_API
 
 const fetchWeatherData = (city, res) => {
-  const apiKey = process.env.WEATHER_API;
+  const apiKey = "b07ee1e13cd777a1e35035134490d1fa";
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   https.get(url, function (response) {
