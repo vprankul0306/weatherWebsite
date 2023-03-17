@@ -18,7 +18,7 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
     <title>Weather</title>
   </head>
   <body class="full__cover">
@@ -77,7 +77,6 @@
                               id="basic-addon2"
                               ><a
                                 class="dark__search"
-                                href="javascript:$('form-post').submit();"
                                 onclick="document.getElementById('form-post').submit();"
                                 ><i class="uil uil-search text-blue"></i></a
                             ></span>
@@ -1242,6 +1241,11 @@
             sunshine.🌞
           </div>
         </div>
+
+        <div class="AQI">
+          <h5>AQI: <%=aqi%></h5>
+        </div>
+
         <!-- trial -->
         <!-- <form action="/" method="post">
           <button type="submit" onclick="this.form.submit()" name="unit">F</button>

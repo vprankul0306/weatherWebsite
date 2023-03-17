@@ -10,6 +10,10 @@ body {
   position: relative;
   color: #596774 !important;
   height: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 * {
@@ -303,6 +307,9 @@ body,
 }
 .text-blue {
   color: #6c757d !important;
+}
+
+.AQI {
 }
 
 /* ================================== media queries  ====================================*/

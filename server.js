@@ -18,7 +18,10 @@ app.use(express.static("public"));
 const fetchWeatherData = (city, res) => {
   const apiKey = "b07ee1e13cd777a1e35035134490d1fa";
 
+  const cityURL = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`;
+
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
   https.get(url, function (response) {
     if (response.statusCode === 200) {
       response.on("data", function (data) {
@@ -30,14 +33,46 @@ const fetchWeatherData = (city, res) => {
         const tempMin = Math.floor(json.main.temp_min);
         const iconId = json.weather[0].icon;
         const city = json.name;
-        res.render("index", {
-          temp: temp,
-          windSpeed: windSpeed,
-          humidity: humidity,
-          tempMax: tempMax,
-          tempMin: tempMin,
-          iconId: iconId,
-          cityName: city,
+
+        https.get(cityURL, (response) => {
+          response.on("data", (data) => {
+            const json = JSON.parse(data);
+            const lat = json[0].lat;
+            const lon = json[0].lon;
+
+            const pollutionURL = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+
+            https.get(pollutionURL, (resp) => {
+              resp.on("data", (data) => {
+                const js = JSON.parse(data);
+                const aqi = js.list[0].main.aqi;
+                let pollutionInfo = "";
+
+                if (aqi == 1) {
+                  pollutionInfo = "Good";
+                } else if (aqi == 2) {
+                  pollutionInfo = "Fair";
+                } else if (aqi == 3) {
+                  pollutionInfo = "Moderate";
+                } else if (aqi == 4) {
+                  pollutionInfo = "Poor";
+                } else if (aqi == 5) {
+                  pollutionInfo = "Very Poor";
+                }
+
+                res.render("index", {
+                  aqi: pollutionInfo,
+                  temp: temp,
+                  windSpeed: windSpeed,
+                  humidity: humidity,
+                  tempMax: tempMax,
+                  tempMin: tempMin,
+                  iconId: iconId,
+                  cityName: city,
+                });
+              });
+            });
+          });
         });
       });
     } else {
