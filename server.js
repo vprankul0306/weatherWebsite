@@ -60,15 +60,42 @@ const fetchWeatherData = (city, res) => {
                   pollutionInfo = "Very Poor";
                 }
 
-                res.render("index", {
-                  aqi: pollutionInfo,
-                  temp: temp,
-                  windSpeed: windSpeed,
-                  humidity: humidity,
-                  tempMax: tempMax,
-                  tempMin: tempMin,
-                  iconId: iconId,
-                  cityName: city,
+                const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&`;
+
+                https.get(forecastURL, (r) => {
+                  r.on("data", (data) => {
+                    const jsonData = JSON.parse(data);
+                    const len = jsonData.list.length;
+                    let tempArr = [];
+                    let iconArr = [];
+                    let dateArr = [];
+                    for (let i = 0; i < len; i++) {
+                      if (
+                        jsonData.list[i].dt_txt.split(" ")[1].split(":")[0] ==
+                        "12"
+                      ) {
+                        tempArr.push(jsonData.list[i].main.temp);
+                        iconArr.push(jsonData.list[i].weather[0].icon);
+                        dateArr.push(
+                          jsonData.list[i].dt_txt.split(" ")[0].split("-")[2]
+                        );
+                      }
+                    }
+                    console.log(tempArr);
+                    console.log(iconArr);
+                    console.log(dateArr);
+
+                    res.render("index", {
+                      aqi: pollutionInfo,
+                      temp: temp,
+                      windSpeed: windSpeed,
+                      humidity: humidity,
+                      tempMax: tempMax,
+                      tempMin: tempMin,
+                      iconId: iconId,
+                      cityName: city,
+                    });
+                  });
                 });
               });
             });
