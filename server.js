@@ -69,6 +69,7 @@ const fetchWeatherData = (city, res) => {
                     let tempArr = [];
                     let iconArr = [];
                     let dateArr = [];
+                    let monthArr = [];
                     for (let i = 0; i < len; i++) {
                       if (
                         jsonData.list[i].dt_txt.split(" ")[1].split(":")[0] ==
@@ -79,13 +80,17 @@ const fetchWeatherData = (city, res) => {
                         dateArr.push(
                           jsonData.list[i].dt_txt.split(" ")[0].split("-")[2]
                         );
+                        monthArr.push(
+                          jsonData.list[i].dt_txt.split(" ")[0].split("-")[1]
+                        );
                       }
                     }
-                    console.log(tempArr);
-                    console.log(iconArr);
-                    console.log(dateArr);
 
                     res.render("index", {
+                      monthArr: monthArr,
+                      tempArr: tempArr,
+                      iconArr: iconArr,
+                      dateArr: dateArr,
                       aqi: pollutionInfo,
                       temp: temp,
                       windSpeed: windSpeed,
