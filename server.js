@@ -133,6 +133,12 @@ app.get("*", (req, res) => {
   res.render("pageNotFound", { message: "Page not found" });
 });
 
+// app.post("unitchange", (req, res) => {
+//   const location = req.body.city;
+//   const unit = req.body.unit;
+//   fetchWeatherData(location, "metric", res);
+// });
+
 app.post("/", (req, res) => {
   const location = req.body.city;
   fetchWeatherData(location, res);

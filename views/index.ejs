@@ -117,6 +117,7 @@
               />
             </div>
           </div>
+
           <!-- /*location icon ends*// -->
         </div>
         <!-- weather div ends  -->
@@ -146,7 +147,8 @@
             <span class="side__data"><%=tempMax%> &#0176;</span>
           </div>
           <div class="AQI">
-            <p>AQI: <%=aqi%><p/>
+            <p>AQI: <%=aqi%></p>
+            <p />
           </div>
         </div>
         <!-- weather  info div ends -->
@@ -1247,46 +1249,66 @@
         </div>
 
         <!--Weather Forecast-->
-        <div id = "weather-forecast" class = "upcoming-days-forecast">
-          <div class = "weather-forecast-item">
-            <img src="https://openweathermap.org/img/wn/<%=iconArr[0]%>@2x.png" alt="weather icon" class = "weather-icon">
+        <div id="weather-forecast" class="upcoming-days-forecast">
+          <div class="weather-forecast-item">
+            <img
+              src="https://openweathermap.org/img/wn/<%=iconArr[0]%>@2x.png"
+              alt="weather icon"
+              class="weather-icon"
+            />
             <div class="day-temp">
               <div class="day"><%=dateArr[0]%>/<%=monthArr[0]%></div>
-            <div class="temp"><%=Math.floor(tempArr[0])%>&#176; C</div>
+              <div class="temp"><%=Math.floor(tempArr[0])%>&#176; C</div>
             </div>
           </div>
 
-          <div class = "weather-forecast-item">
-            <img src="https://openweathermap.org/img/wn/<%=iconArr[1]%>@2x.png" alt="weather icon" class = "weather-icon">
+          <div class="weather-forecast-item">
+            <img
+              src="https://openweathermap.org/img/wn/<%=iconArr[1]%>@2x.png"
+              alt="weather icon"
+              class="weather-icon"
+            />
             <div class="day-temp">
               <div class="day"><%=dateArr[1]%>/<%=monthArr[1]%></div>
-            <div class="temp"><%=Math.floor(tempArr[1])%>&#176; C</div>
+              <div class="temp"><%=Math.floor(tempArr[1])%>&#176; C</div>
             </div>
           </div>
 
-          <div class = "weather-forecast-item">
-            <img src="https://openweathermap.org/img/wn/<%=iconArr[2]%>@2x.png" alt="weather icon" class = "weather-icon">
+          <div class="weather-forecast-item">
+            <img
+              src="https://openweathermap.org/img/wn/<%=iconArr[2]%>@2x.png"
+              alt="weather icon"
+              class="weather-icon"
+            />
             <div class="day-temp">
               <div class="day"><%=dateArr[2]%>/<%=monthArr[2]%></div>
-            <div class="temp"><%=Math.floor(tempArr[2])%>&#176; C</div>
+              <div class="temp"><%=Math.floor(tempArr[2])%>&#176; C</div>
             </div>
           </div>
 
-          <div class = "weather-forecast-item">
-            <img src="https://openweathermap.org/img/wn/<%=iconArr[3]%>@2x.png" alt="weather icon" class = "weather-icon">
+          <div class="weather-forecast-item">
+            <img
+              src="https://openweathermap.org/img/wn/<%=iconArr[3]%>@2x.png"
+              alt="weather icon"
+              class="weather-icon"
+            />
             <div class="day-temp">
               <div class="day"><%=dateArr[3]%>/<%=monthArr[3]%></div>
-            <div class="temp"><%=Math.floor(tempArr[3])%>&#176; C</div>
+              <div class="temp"><%=Math.floor(tempArr[3])%>&#176; C</div>
             </div>
           </div>
 
-          <div class = "weather-forecast-item">
-            <img src="https://openweathermap.org/img/wn/<%=iconArr[4]%>@2x.png" alt="weather icon" class = "weather-icon">
+          <div class="weather-forecast-item">
+            <img
+              src="https://openweathermap.org/img/wn/<%=iconArr[4]%>@2x.png"
+              alt="weather icon"
+              class="weather-icon"
+            />
             <div class="day-temp">
               <div class="day"><%=dateArr[4]%>/<%=monthArr[4]%></div>
-            <div class="temp"><%=Math.floor(tempArr[4])%>&#176; C</div>
+              <div class="temp"><%=Math.floor(tempArr[4])%>&#176; C</div>
             </div>
-          </div>  
+          </div>
         </div>
 
         <!-- trial -->
