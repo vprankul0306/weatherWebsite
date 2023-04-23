@@ -110,7 +110,7 @@ body {
 .celsius {
   position: relative;
   right: 90px;
-  /* font-size: 0.5rem; */
+  font-size: 9rem;
 }
 .circle {
   font-size: 10rem;
@@ -322,6 +322,12 @@ body,
 .unit-change-btn:hover {
   background-color: rgb(123, 189, 255);
   color: white;
+}
+
+.map {
+  width: 100%;
+  height: 65vh;
+  z-index: 0;
 }
 
 /* ================================== media queries  ====================================*/

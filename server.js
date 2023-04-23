@@ -100,10 +100,12 @@ const fetchWeatherData = (city, unit, res) => {
                       if (unit == "metric") {
                         displayUnit = "c";
                       } else {
-                        displayUnit = "f";
+                        displayUnit = "F";
                       }
 
                       res.render("index", {
+                        lat: lat,
+                        lon: lon,
                         displayUnit: displayUnit,
                         monthArr: monthArr,
                         tempArr: tempArr,
