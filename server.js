@@ -98,7 +98,7 @@ const fetchWeatherData = (city, unit, res) => {
                       let displayUnit = "";
 
                       if (unit == "metric") {
-                        displayUnit = "c";
+                        displayUnit = "C";
                       } else {
                         displayUnit = "F";
                       }
