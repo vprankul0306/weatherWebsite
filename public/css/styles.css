@@ -309,48 +309,21 @@ body,
   color: #6c757d !important;
 }
 
-/* ======================== Toggle css here ======================*/
-input[type="checkbox"] {
-  height: 0;
-  width: 0;
-  visibility: hidden;
-}
-
-label {
-  cursor: pointer;
-  text-indent: -9999px;
-  width: 40px;
-  height: 20px;
-  background: grey;
-  display: block;
-  border-radius: 100px;
-  position: relative;
-}
-
-label:after {
-  content: "";
-  position: absolute;
-  top: 2.5px;
-  left: 5px;
-  width: 15px;
-  height: 15px;
-  background: #fff;
+.unit-change-btn {
+  color: rgb(123, 189, 255);
+  background-color: white;
+  border: 2px solid rgb(123, 189, 255);
+  letter-spacing: 0.5px;
   border-radius: 10px;
-  transition: 0.3s;
+  width: 120px;
+  height: 30px;
 }
 
-input:checked + label {
-  background: #bada55;
+.unit-change-btn:hover {
+  background-color: rgb(123, 189, 255);
+  color: white;
 }
 
-input:checked + label:after {
-  left: calc(100% - 5px);
-  transform: translateX(-100%);
-}
-
-label:active:after {
-  width: 10px;
-}
 /* ================================== media queries  ====================================*/
 /*================================ width 1350========================================== */
 

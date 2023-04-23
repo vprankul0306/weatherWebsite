@@ -23,4 +23,17 @@ $(".themechange__btn").on("click", function () {
   }
 });
 
+// function toggleTemp() {
+//   var tempToggle = document.getElementById("toggleBtn");
+//   var currentTempUnit = tempToggle.innerHTML;
+
+//   if (currentTempUnit === "Celsius") {
+//     tempToggle.innerHTML = "Fahrenheit";
+//     // Code to switch temperature data from Celsius to Fahrenheit
+//   } else {
+//     tempToggle.innerHTML = "Celsius";
+//     // Code to switch temperature data from Fahrenheit to Celsius
+//   }
+// }
+
 // hooooooooooooooooooo gyaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

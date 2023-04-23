@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const https = require("https");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -12,15 +13,17 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(cookieParser());
+app.use(express.json());
 
 //weather api: https://api.openweathermap.org/data/2.5/weather?q={cityName}&units=metric&appid=env.WEATHER_API
 
-const fetchWeatherData = (city, res) => {
+const fetchWeatherData = (city, unit, res) => {
   const apiKey = "b07ee1e13cd777a1e35035134490d1fa";
 
   const cityURL = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`;
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`;
 
   https.get(url, function (response) {
     if (response.statusCode === 200) {
@@ -60,46 +63,64 @@ const fetchWeatherData = (city, res) => {
                   pollutionInfo = "Very Poor";
                 }
 
-                const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&`;
+                const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}&`;
 
                 https.get(forecastURL, (r) => {
-                  r.on("data", (data) => {
-                    const jsonData = JSON.parse(data);
-                    const len = jsonData.list.length;
-                    let tempArr = [];
-                    let iconArr = [];
-                    let dateArr = [];
-                    let monthArr = [];
-                    for (let i = 0; i < len; i++) {
-                      if (
-                        jsonData.list[i].dt_txt.split(" ")[1].split(":")[0] ==
-                        "12"
-                      ) {
-                        tempArr.push(jsonData.list[i].main.temp);
-                        iconArr.push(jsonData.list[i].weather[0].icon);
-                        dateArr.push(
-                          jsonData.list[i].dt_txt.split(" ")[0].split("-")[2]
-                        );
-                        monthArr.push(
-                          jsonData.list[i].dt_txt.split(" ")[0].split("-")[1]
-                        );
-                      }
-                    }
+                  let data = "";
+                  r.on("data", (chunk) => {
+                    data += chunk;
+                  });
 
-                    res.render("index", {
-                      monthArr: monthArr,
-                      tempArr: tempArr,
-                      iconArr: iconArr,
-                      dateArr: dateArr,
-                      aqi: pollutionInfo,
-                      temp: temp,
-                      windSpeed: windSpeed,
-                      humidity: humidity,
-                      tempMax: tempMax,
-                      tempMin: tempMin,
-                      iconId: iconId,
-                      cityName: city,
-                    });
+                  r.on("end", () => {
+                    try {
+                      let jsonData = JSON.parse(data);
+                      const len = jsonData.list.length;
+                      let tempArr = [];
+                      let iconArr = [];
+                      let dateArr = [];
+                      let monthArr = [];
+                      for (let i = 0; i < len; i++) {
+                        if (
+                          jsonData.list[i].dt_txt.split(" ")[1].split(":")[0] ==
+                          "12"
+                        ) {
+                          tempArr.push(jsonData.list[i].main.temp);
+                          iconArr.push(jsonData.list[i].weather[0].icon);
+                          dateArr.push(
+                            jsonData.list[i].dt_txt.split(" ")[0].split("-")[2]
+                          );
+                          monthArr.push(
+                            jsonData.list[i].dt_txt.split(" ")[0].split("-")[1]
+                          );
+                        }
+                      }
+
+                      let displayUnit = "";
+
+                      if (unit == "metric") {
+                        displayUnit = "c";
+                      } else {
+                        displayUnit = "f";
+                      }
+
+                      res.render("index", {
+                        displayUnit: displayUnit,
+                        monthArr: monthArr,
+                        tempArr: tempArr,
+                        iconArr: iconArr,
+                        dateArr: dateArr,
+                        aqi: pollutionInfo,
+                        temp: temp,
+                        windSpeed: windSpeed,
+                        humidity: humidity,
+                        tempMax: tempMax,
+                        tempMin: tempMin,
+                        iconId: iconId,
+                        cityName: city,
+                      });
+                    } catch (error) {
+                      console.error(error);
+                    }
                   });
                 });
               });
@@ -125,23 +146,31 @@ const fetchWeatherData = (city, res) => {
   });
 };
 
+app.get("/toggle-temp", function (req, res) {
+  let tempUnit = req.cookies.tempUnit || "metric";
+
+  if (tempUnit === "metric") {
+    res.cookie("tempUnit", "imperial");
+  } else {
+    res.cookie("tempUnit", "metric");
+  }
+  res.redirect("/");
+});
+
 app.get("/", (req, res) => {
-  fetchWeatherData("London", res);
+  const location = "London";
+  let tempUnit = req.cookies.tempUnit || "metric";
+  fetchWeatherData(location, tempUnit, res);
 });
 
 app.get("*", (req, res) => {
   res.render("pageNotFound", { message: "Page not found" });
 });
 
-// app.post("unitchange", (req, res) => {
-//   const location = req.body.city;
-//   const unit = req.body.unit;
-//   fetchWeatherData(location, "metric", res);
-// });
-
 app.post("/", (req, res) => {
   const location = req.body.city;
-  fetchWeatherData(location, res);
+  let tempUnit = req.cookies.tempUnit || "metric";
+  fetchWeatherData(location, tempUnit, res);
 });
 
 let port = process.env.PORT;
