@@ -40,8 +40,8 @@ const fetchWeatherData = (city, unit, res) => {
         https.get(cityURL, (response) => {
           response.on("data", (data) => {
             const json = JSON.parse(data);
-            const lat = json[0].lat;
-            const lon = json[0].lon;
+            var lat = json[0].lat;
+            var lon = json[0].lon;
 
             const pollutionURL = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`;
 
