@@ -325,12 +325,57 @@ body,
 }
 
 .map {
-  width: 40%;
-  height: 50vh;
+  width: 60%;
+  height: 60vh;
   z-index: 0;
   border-radius: 20px;
   margin-bottom: 50px;
 }
+
+/** ---------- Weather forecast ------------- */
+.upcoming-days-forecast {
+  background-color: #e2faff;
+  padding: 15px;
+  /*position: fixed; 
+  bottom: 0; */
+  display: flex;
+  color: #596774;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+/*
+.upcoming-days-forecast:hover{
+  box-shadow: 0 14px 28px rgba(193, 219, 233, 0.915), 0 10px 10px rgba(193, 219, 233, 1);
+} */
+.weather-forecast-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 15px;
+  font-size: 1rem;
+}
+
+.weather-forecast-item .day-temp {
+  padding: 5px 7px;
+}
+
+.weather-icon {
+  width: 40px;
+  height: 40px;
+}
+
+/*
+@media only screen and (max-width: 730px) {
+#weather-forecast{
+  justify-content: start;
+  align-items: none;
+  overflow-y: scroll;
+}
+}
+*/
 
 /* ================================== media queries  ====================================*/
 /*================================ width 1350========================================== */
@@ -352,7 +397,9 @@ body,
   .nav {
     margin: 0 5rem;
   }
-
+  .map {
+    width: 80%;
+  }
   .temperature {
     font-size: 6rem;
   }
@@ -414,6 +461,10 @@ body,
   /* main {
     background-color: lightgreen;
   } */
+  .celsius {
+    font-size: 4rem;
+    margin-left: 2rem;
+  }
   .nav {
     margin: 0 2rem;
   }
@@ -451,6 +502,37 @@ body,
   /* main {
     background-color: lightseagreen;
   } */
+  .upcoming-days-forecast {
+    flex-direction: column;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    font-size: 10rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  .celsius {
+    font-size: 4rem;
+    margin-left: 2rem;
+  }
+  .weather-forecast-item {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    font-size: 20px;
+  }
+  .weather-icon {
+    width: 50px;
+    height: 50px;
+  }
+  .day-temp {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+  .map {
+    width: 80%;
+  }
   .nav {
     margin: 0 3rem;
   }
@@ -497,6 +579,34 @@ body,
     background-color: lightpink;
   } */
 
+  .upcoming-days-forecast {
+    flex-direction: column;
+    width: 70%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  .map {
+    width: 80%;
+  }
+  .celsius {
+    font-size: 4rem;
+    margin-left: 2rem;
+  }
+  .weather-forecast-item {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    font-size: 20px;
+  }
+  .weather-icon {
+    width: 50px;
+    height: 50px;
+  }
+  .day-temp {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
   .side__data {
     font-size: 1rem;
   }
@@ -563,6 +673,15 @@ body,
 }
 /* ============================================width 350============================= */
 @media screen and (max-width: 350px) {
+  .upcoming-days-forecast {
+    margin-top: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  .celsius {
+    font-size: 3rem;
+    margin-left: 2rem;
+  }
   .circle {
     font-size: 5rem;
     right: 20px;
@@ -618,48 +737,3 @@ body,
   gap: 1rem;
   cursor: pointer;
 }
-
-/** ---------- Weather forecast ------------- */
-.upcoming-days-forecast {
-  background-color: #e2faff;
-  padding: 15px;
-  /*position: fixed; 
-  bottom: 0; */
-  display: flex;
-  color: #596774;
-  border-radius: 20px;
-  align-items: center;
-  justify-content: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-/*
-.upcoming-days-forecast:hover{
-  box-shadow: 0 14px 28px rgba(193, 219, 233, 0.915), 0 10px 10px rgba(193, 219, 233, 1);
-} */
-.weather-forecast-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 15px;
-  font-size: 1rem;
-}
-
-.weather-forecast-item .day-temp {
-  padding: 5px 7px;
-}
-
-.weather-icon {
-  width: 40px;
-  height: 40px;
-}
-
-/*
-@media only screen and (max-width: 730px) {
-#weather-forecast{
-  justify-content: start;
-  align-items: none;
-  overflow-y: scroll;
-}
-}
-*/
