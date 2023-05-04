@@ -7,6 +7,7 @@ const ejs = require("ejs");
 const mongoose = require("mongoose");
 const encrypt = require("mongoose-encryption");
 const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 const { json } = require("body-parser");
 const { get, request } = require("http");
 const { log } = require("console");
@@ -18,19 +19,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(cookieParser());
 app.use(express.json());
-app.use(
-  session({
-    secret: "mysecret",
-    resave: false,
-    saveUninitialized: true,
-  })
-);
 
 mongoose.set("strictQuery", false);
 mongoose.connect(
   "mongodb+srv://admin-prankul:testcase123@cluster0.093b0dl.mongodb.net/weather",
-  { useNewUrlParser: true }
+  { useNewUrlParser: true, useUnifiedTopology: true }
 );
+
+const sessionMiddleware = session({
+  secret: "mysecret",
+  resave: false,
+  saveUninitialized: false,
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+});
+app.use(sessionMiddleware);
 
 const userSchema = new mongoose.Schema({
   name: String,
