@@ -4,8 +4,11 @@ const cookieParser = require("cookie-parser");
 const https = require("https");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const mongoose = require("mongoose");
+const encrypt = require("mongoose-encryption");
+const session = require("express-session");
 const { json } = require("body-parser");
-const { get } = require("http");
+const { get, request } = require("http");
 const { log } = require("console");
 
 const app = express();
@@ -15,6 +18,33 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(cookieParser());
 app.use(express.json());
+app.use(
+  session({
+    secret: "mysecret",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
+mongoose.set("strictQuery", false);
+mongoose.connect(
+  "mongodb+srv://admin-prankul:testcase123@cluster0.093b0dl.mongodb.net/weather",
+  { useNewUrlParser: true }
+);
+
+const userSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  password: String,
+  prev_location: String,
+});
+
+userSchema.plugin(encrypt, {
+  secret: process.env.secret,
+  encryptedFields: ["password"],
+});
+
+const User = new mongoose.model("User", userSchema);
 
 //weather api: https://api.openweathermap.org/data/2.5/weather?q={cityName}&units=metric&appid=env.WEATHER_API
 
@@ -159,10 +189,65 @@ app.get("/toggle-temp", function (req, res) {
   res.redirect("/");
 });
 
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+app.post("/login", (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+  User.findOne({ email: email })
+    .then((user, err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        if (user) {
+          if (user.password == password) {
+            req.session.user = user;
+            res.redirect("/");
+          } else {
+            res.send("Please enter the correct password");
+          }
+        }
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+app.get("/logout", (req, res) => {
+  req.session.destroy();
+  res.redirect("/login");
+});
+
+app.get("/signup", (req, res) => {
+  res.render("signup");
+});
+app.post("/signup", (req, res) => {
+  const name = req.body.name;
+  const email = req.body.email;
+  const password = req.body.password;
+  const loc = req.body.prev_location;
+  let newUser = new User({
+    name: name,
+    email: email,
+    password: password,
+    prev_location: "London",
+  });
+  newUser.save().then((err, result) => {
+    console.log(err);
+  });
+  res.redirect("/login");
+});
+
 app.get("/", (req, res) => {
-  const location = "London";
-  let tempUnit = req.cookies.tempUnit || "metric";
-  fetchWeatherData(location, tempUnit, res);
+  if (!req.session.user) {
+    return res.redirect("/login");
+  } else {
+    const location = req.session.user.prev_location || "London";
+    let tempUnit = req.cookies.tempUnit || "metric";
+    fetchWeatherData(location, tempUnit, res);
+  }
 });
 
 app.get("*", (req, res) => {
@@ -171,6 +256,23 @@ app.get("*", (req, res) => {
 
 app.post("/", (req, res) => {
   const location = req.body.city;
+  const email = req.session.user.email;
+
+  User.findOne({ email: email }).then((user, err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      user.prev_location = location;
+      user.save().then((err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(result);
+        }
+      });
+    }
+  });
+
   let tempUnit = req.cookies.tempUnit || "metric";
   fetchWeatherData(location, tempUnit, res);
 });
