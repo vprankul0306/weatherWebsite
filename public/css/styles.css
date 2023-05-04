@@ -395,6 +395,9 @@ body,
   /* main {
     background-color: lightpink;
   } */
+  .celsius {
+    font-size: 5rem;
+  }
   .nav {
     margin: 0 5rem;
   }
@@ -476,9 +479,9 @@ body,
   .circle {
     font-size: 6rem;
   }
-  .celcius {
+  /* .celsius {
     right: 70px;
-  }
+  } */
   .search__box {
     width: 60%;
     margin-top: 2.5rem;
@@ -590,7 +593,7 @@ body,
     width: 80%;
   }
   .celsius {
-    font-size: 4rem;
+    font-size: 3rem;
     margin-left: 2rem;
   }
   .weather-forecast-item {
@@ -625,6 +628,7 @@ body,
     margin: 0 2rem;
   }
   .weather__data {
+    gap: 2rem;
     margin: 0 2rem;
     justify-content: space-between;
   }
@@ -637,9 +641,10 @@ body,
   .circle {
     font-size: 6rem;
   }
-  .celcius {
-    position: relative;
-    right: 60px;
+  .celsius {
+    position: absolute;
+    left: 5rem;
+    top: 3rem;
   }
   .description__section {
     margin-top: -20px;
@@ -690,9 +695,10 @@ body,
   .temperature {
     font-size: 3rem;
   }
-  .celcius {
-    position: relative;
-    right: 55px;
+  .celsius {
+    position: absolute;
+    left: 3rem;
+    top: 2rem;
   }
   .side__data {
     font-size: 0.9rem;
