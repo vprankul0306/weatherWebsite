@@ -1,1 +1,1 @@
-Add a secret to env for mongodb encryption
+Create an env file with secret, mongodb_uri and openweather_api
