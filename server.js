@@ -8,9 +8,6 @@ const mongoose = require("mongoose");
 const encrypt = require("mongoose-encryption");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
-const { json } = require("body-parser");
-const { get, request } = require("http");
-const { log } = require("console");
 
 const app = express();
 
@@ -21,13 +18,13 @@ app.use(cookieParser());
 app.use(express.json());
 
 mongoose.set("strictQuery", false);
-mongoose.connect(
-  "mongodb+srv://admin-prankul:testcase123@cluster0.093b0dl.mongodb.net/weather",
-  { useNewUrlParser: true, useUnifiedTopology: true }
-);
+mongoose.connect(process.env.mongodb_uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 const sessionMiddleware = session({
-  secret: "mysecret",
+  secret: process.env.secret,
   resave: false,
   saveUninitialized: false,
   store: new MongoStore({ mongooseConnection: mongoose.connection }),
@@ -51,7 +48,7 @@ const User = new mongoose.model("User", userSchema);
 //weather api: https://api.openweathermap.org/data/2.5/weather?q={cityName}&units=metric&appid=env.WEATHER_API
 
 const fetchWeatherData = (city, unit, res) => {
-  const apiKey = "b07ee1e13cd777a1e35035134490d1fa";
+  const apiKey = process.env.openweather_api;
 
   const cityURL = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`;
 
