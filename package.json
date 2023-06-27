@@ -22,7 +22,7 @@
     "jquery": "^3.6.0",
     "jsdom": "^20.0.0",
     "mongoose": "^7.1.0",
-    "mongoose-encryption": "^1.2.2"
+    "mongoose-encryption": "^2.1.2"
   },
   "engines": {
     "node": "16.x"
